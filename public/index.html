@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="pt-br">
 
-    <!-- update the version number as needed -->
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <title>Longe de casa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Site para ajudar brasileiros a não pagar mico nos Estados Unidos">
+    <meta name="author" content="William Scott hood do Amaral Santos">
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- CSS Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS Offline -->
+    <link rel="stylesheet" href="css\styles.css">
+    <!-- Manifesto -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+
+    <!-- Firebase -->
     <script defer src="/__/firebase/6.2.3/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/6.2.3/firebase-auth.js"></script>
@@ -15,51 +29,214 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <!--Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    <script> if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(function () {
+                console.log('Service Worker Registered');
+            }
+            );
         }
-      });
     </script>
-  </body>
+    <script src="assets/js/app.js"></script>
+
+</head>
+
+<body>
+    <!-- Garantindo JavaScript -->
+    <noscript><strong>Desculpe, mas Longe de Casa não funciona corretamente sem o JavaScript habilitado. Ative-o para
+            continuar.</strong></noscript>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container"><a href="#" class="navbar-brand">Longe de Casa</a><button type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div id="navbarResponsive" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#ipebr-2" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#como" class="nav-link">Categorias</a></li>
+                    <li class="nav-item"><a href="#conteu" class="nav-link">Conteúdo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header data-type="header" class="header-1">
+        <div data-highlightable="1" class="overlay gjs-comp-selected"></div>
+        <div data-highlightable="1" class="container h-100">
+            <div data-highlightable="1" class="d-flex text-center h-100">
+                <div data-highlightable="1" class="my-auto w-100 text-white">
+                    <h1 data-type="header" data-highlightable="1" class="display-2">Longe de Casa<br
+                            data-highlightable="1" />
+                    </h1>
+                    <h2 data-type="header" data-highlightable="1" >alguma coisa aqui<br
+                            data-highlightable="1" /></h2><a data-highlightable="1" href="#"
+                        class="btn btn-danger btn-lg mt-2">Saiba
+                        Mais</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header data-type="header" class="header-1">
+        <div data-highlightable="1" class="overlay"></div>
+        <div data-highlightable="1" id="SN-2" title="Sobre Nós" class="container h-100 graf graf--p">
+            <div data-highlightable="1" class="d-flex text-center h-100 -bg-dark my-auto w-100 text-white">
+                <section data-highlightable="1" id="ipebr-2" class="graf graf--p">
+                    <h2 data-type="header" data-highlightable="1" class="text-center">Sobre Nós </h2>
+                    <p data-type="paragraph" data-highlightable="1" name="470b" class="graf--p gjs-comp-selected">Ao de
+                        viajar
+                        para o exterior é quase certo que você, ira presenciar o choque
+                        cultural, onde uma situação é familiar e ao mesmo tempo diferente. Nestas horas estamos sujeitos
+                        a cometer
+                        várias formas de gafes ou micos. Eles podem ser sutis e passarem
+                        despercebidos, como podem criar uma bola de neve de mal-entendidos, o que pode estragar tudo.
+                    </p>
+                    <p data-type="paragraph" data-highlightable="1" name="6e7b" class="graf graf--p">Para evitar que
+                        isso ocorra e
+                        proporcionar uma melhor experiência,conversei com pessoas que já
+                        passaram por este intercambio cultural de Estados Unidos/Brasil e reuni dados da internet. Boa
+                        parte foi
+                        encontrado nos canais de YouTube, que por suas vez, diversos deles é
+                        focado em falar sobre situações vividas, criadas por este ambiente particular. </p>
+                    <p data-type="paragraph" data-highlightable="1" name="6e7b" class="graf graf--p">Reuni dados através
+                        da
+                        internet, e conversei com pessoas que já passaram por este intercambio
+                        cultural de Estados Unidos -Brasil. Na internet encontrei diversos canais de YouTube, onde o
+                        maior foco de
+                        alguns é falar sobre histórias e situações criadas por este ambiente
+                        único. Com estas informações em mãos, o <a data-highlightable="1"
+                            href="https://developers.google.com/web/progressive-web-apps/"
+                            data-href="https://developers.google.com/web/progressive-web-apps/" rel="noopener"
+                            target="_blank" class="markup--anchor markup--p-anchor">PWA</a> conseguira evitar que
+                        episódios semelhantes ocorram com o
+                        usuário. </p>
+                    <p data-type="paragraph" data-highlightable="1">
+                    </p>
+                </section>
+            </div>
+        </div>
+    </header>
+    <header data-type="header" class="header-1 overflow-auto">
+        <div data-highlightable="1" class="overlay"></div>
+        <div data-highlightable="1" title="Como Funciona" class="container h-100 graf graf--p">
+            <div data-highlightable="1" id="como" class="d-flex text-center h-100 -bg-dark my-auto w-100 text-white">
+                <section data-highlightable="1" class="graf graf--p">
+                    <h2 data-type="header" data-highlightable="1" class="text-center gjs-comp-selected">Como Funciona a
+                        Divisão de
+                        Conteúdos <br data-highlightable="1" /></h2>
+                    <div data-highlightable="1" class="container">
+                        <div data-highlightable="1" class="row">
+                            <div data-highlightable="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div data-highlightable="1" class="card bg-dark"><img data-type="image"
+                                        src="img\mundo-br.jpg" class="card-img-top" />
+                                    <div data-highlightable="1" class="card-body">
+                                        <h5 data-type="header" data-highlightable="1" class="card-title">Costumes e
+                                            Hábitos <br data-highlightable="1" />Gafes e Micos <br
+                                                data-highlightable="1" /></h5>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Considere as
+                                            diferenças e
+                                            corresponda expectativas </p>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Como e Quando
+                                            Agir </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-highlightable="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div data-highlightable="1" class="card bg-dark"><img data-type="image"
+                                        src="https://images.pexels.com/photos/4341/sign-slippery-wet-caution.jpg"
+                                        alt="Cuidado" class="card-img-top" />
+                                    <div data-highlightable="1" class="card-body">
+                                        <h5 data-type="header" data-highlightable="1" class="card-title">Atenção! <br
+                                                data-highlightable="1" />Se prepare <br data-highlightable="1" /></h5>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Se antecipe
+                                            Descubra as ofensas
+                                            involuntárias </p>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Intenção
+                                            positiva <b data-highlightable="1">sempre </b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-highlightable="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div data-highlightable="1" class="card bg-dark"><img data-type="image"
+                                        src="https://i.pinimg.com/564x/b8/f9/99/b8f9994f6140a4cb272589bbfd93d2ad.jpg"
+                                        alt="Polemico" class="card-img-top" />
+                                    <div data-highlightable="1" class="card-body">
+                                        <h5 data-type="header" data-highlightable="1" class="card-title">Tabu <br
+                                                data-highlightable="1" />Não
+                                            seja esta pessoa <br data-highlightable="1" /></h5>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Assuntos,
+                                            referencias e palavras
+                                            que você deve evitar <br /></p>
+                                        <p data-type="paragraph" data-highlightable="1" class="card-text">Dá ruim <br />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section data-highlightable="1" class="py-5">
+                </section>
+            </div>
+        </div>
+    </header>
+    <header data-type="header" class="header-1">
+        <div data-highlightable="1" class="overlay"></div>
+        <div data-highlightable="1" title="Conteúdo" class="container h-100 graf graf--p">
+            <div data-highlightable="1" id="conteu" class="d-flex text-center h-100 -bg-dark my-auto w-100 text-white">
+                <section data-highlightable="1" class="graf graf--p">
+                    <h2 data-type="header" data-highlightable="1" class="text-center">Conteúdo </h2>
+                    <div class="my-tabs">
+                        <nav role="tablist" class="nav nav-tabs"><a data-toggle="tab" href="#nav-ceh-tab" role="tab"
+                                aria-controls="nav-ceh" aria-expanded="true"
+                                class="nav-item nav-link active bg-success text-white">Costumes
+                                e Hábitos</a><a data-toggle="tab" href="#nav-atencao-tab" role="tab"
+                                aria-controls="nav-atencao-tab"
+                                class="nav-item nav-link bg-warning text-white">Atenção</a><a data-toggle="tab"
+                                href="#nav-tabu" role="tab" aria-controls="nav-tabu"
+                                class="nav-item nav-link bg-danger text-white">Tabu</a></nav>
+                        <div class="tab-content">
+                            <div role="tabpanel" aria-labelledby="nav-ceh-tab" class="tab-pane fade show active bg-dark">
+                                <p data-type="paragraph">Consequat occaecat ullamco amet non eiusmod nostrud dolore
+                                    irure incididunt est
+                                    duis anim sunt officia. Fugiat velit proident aliquip nisi
+                                    incididunt nostrud exercitation proident est nisi. Irure magna elit commodo anim ex
+                                    veniam culpa
+                                    eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod consequat
+                                    eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu
+                                    exercitation irure
+                                    Lorem incididunt nostrud. </p>
+                            </div>
+                            <div role="tabpanel" aria-labelledby="nav-atencao-tab" class="tab-pane fade bg-dark">
+                                <p data-type="paragraph">Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa
+                                    mollit commodo
+                                    mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt
+                                    pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit
+                                    sunt. Qui minim sit
+                                    magna Lorem id et dolore velit Lorem amet exercitation duis
+                                    deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea
+                                    tempor duis. </p>
+                                <div role="tabpanel" aria-labelledby="nav-tabu-tab" class="tab-pane fade bg-dark">
+                                    <p data-type="paragraph">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
 </html>

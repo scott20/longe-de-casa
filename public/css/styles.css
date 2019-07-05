@@ -1,0 +1,142 @@
+body {
+	background-color: black;
+}
+
+.header-1 {
+	position: relative;
+	height: 100vh;
+	min-height: 25rem;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: black;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: url("https://www.gridbox.io/projects/c9925e96-54c0-4bba-89e1-52d8b4b7a9af/assets/img/selva1.png");
+	background-origin: padding-box;
+	background-clip: border-box;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: top;
+}
+
+.header-1 .container {
+	position: relative;
+	z-index: 2;
+}
+
+.header-1 .overlay {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 1;
+}
+
+.overlay {
+	font-family: Courier New, Courier, monospace;
+}
+
+.display-2 {
+	font-family: Courier New, Courier, monospace;
+}
+
+.d-flex.text-center.h100 {
+	font-family: Courier New, Courier, monospace;
+}
+
+.container-fluid {
+	background-position-x: left;
+	background-position-y: top;
+	background-attachment: scroll;
+	background-size: auto;
+	background-repeat: no-repeat;
+}
+
+.navbar-brand {
+	font-size: 20px;
+	font-family: Courier New, Courier, monospace;
+	font-weight: 600;
+}
+
+.paragraph {
+	text-align: left;
+	font-size: 21px;
+	font-weight: 600;
+}
+
+.markup--anchor.markup--p-anchor {
+	color: rgb(0, 45, 179);
+}
+
+.graf.graf--p {
+	font-size: 25px;
+}
+
+.text-center {
+	font-size: 36px;
+}
+
+.card-img-top {
+	height: 278.317px;
+}
+
+.card-text {
+	text-align: center;
+}
+
+@media (max-width: 992px) {
+	.container.h-100 {
+		font-size: 21px;
+		font-weight: 600;
+		text-align: justify;
+	}
+
+	.bdg-sect {
+		text-align: left;
+	}
+
+	.c51489 {
+		font-size: 22px;
+		text-align: justify;
+	}
+
+	.graf.graf--p {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 480px) {
+	.display-2 {
+		font-size: 44px;
+	}
+
+	.header-1 h2 {
+		font-size: 20px;
+	}
+
+	.navbar-brand {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.container.h-100 {
+		font-size: 15px;
+		font-weight: 600;
+	}
+
+	.display-2 {
+		font-size: 40px;
+	}
+
+	.graf.graf--p.gjs-hovered {
+		font-size: 26px;
+	}
+
+	.graf.graf--p {
+		font-size: 14px;
+	}
+}
